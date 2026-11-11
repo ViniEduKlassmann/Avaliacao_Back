@@ -1,0 +1,25 @@
+{
+  "name": "avaliacao_back",
+  "version": "1.0.0",
+  "description": "Prova 10/09/2026",
+  "homepage": "https://github.com/ViniEduKlassmann/Avaliacao_Back#readme",
+  "bugs": {
+    "url": "https://github.com/ViniEduKlassmann/Avaliacao_Back/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViniEduKlassmann/Avaliacao_Back.git"
+  },
+  "license": "ISC",
+  "author": "Vinicius Klassmann",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
+  },
+  "devDependencies": {}
+}
