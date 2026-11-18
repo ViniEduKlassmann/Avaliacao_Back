@@ -29,8 +29,8 @@ async function buscartodos (){
     const lista = document.getElementById("listaUsuarios")
     lista.innerHTML = ""
 
-    data.pessoas.array.forEach(pessoa =>{
-        const li = document.getElementById("li")
+    data.pessoas.forEach(pessoa =>{
+        const li = document.createElement("li")
         li.innerText = "ID: " + pessoa.id + "CPF: " + pessoa.cpf + "Email: " + pessoa.email
         lista.appendChild(li)
     }
