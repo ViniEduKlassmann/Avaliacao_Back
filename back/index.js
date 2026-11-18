@@ -1,23 +1,24 @@
 import express from 'express'
 import BancoDados from "./repository/index.js"
-
+import cors from 'cors' // usado para aplicar o cors!np
 
 const app = express ()
 app.use(express.json());
+app.use(cors()) // usado para aplicar o cors!
 
-app.post("/lista/tarefas", (req, res) =>{
-    const {id, descricao, data} = req.body;
+app.post("/cadastro/pessoas", (req, res) =>{
+    const {id, cpf, email} = req.body;
 
-    if( !id || !descricao || !data ){
+    if( !id || !cpf || !email ){
         res.send ({message: "Você deve preencher todos os dados!"})
         return
     }
-    BancoDados.push({ id, descricao, data, concluido : false})
+    BancoDados.push({ id, cpf, email})
     res.send({message: "Dados enviados com sucesso!"})
 })
 
-app.get("/lista", (req, res) => {
-    res.json(BancoDados)
+app.get("/listar/pessoas", (req, res) => {
+    res.json({pessoas: BancoDados})
 })
 
 
