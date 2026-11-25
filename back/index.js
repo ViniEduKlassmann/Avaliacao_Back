@@ -42,7 +42,7 @@ app.get("/lista/:id", (req, res) => {
 
 })
 
-app.delete("/lista/:id", (req, res) => {
+app.delete("/deletar/pessoas/:id", (req, res) => {
     const id = req.params.id
 
     if(!id){
@@ -64,7 +64,22 @@ app.delete("/lista/:id", (req, res) => {
 
 })
 
-
+app.put("/alterar/cadastro/:id", (req, res) => {
+    const id = req.params.id
+    const { cpf, email } = req.body
+ 
+    const index = BancoDados.findIndex(p => p.id == id)
+ 
+    if (index == -1) {
+        res.send({ message: "id não encontrado!" })
+        return
+    }
+ 
+    BancoDados[index].cpf = cpf
+    BancoDados[index].email = email
+ 
+    res.send({ message: "usuário atualizado com sucesso!" })
+})
 
 app.put("/lista/up/:id", (req, res) => {
     const id = Number(req.params.id);
